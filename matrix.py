@@ -12,11 +12,32 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
+    copy = matrix
+    r = len(matrix)
+    c = len(matrix.pop())
+    p = ""
+    
+    for i in matrix:
+        p += copy.pop() + " "
+
     pass
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
+    copy = matrix
+    r = len(matrix)
+    c = len(matrix.pop())
+    id = set()
+    next1 = 0
+    for i in range(r):
+        row = set()
+        for j in range(c):
+            if j  == next1:
+                row.add(1)
+                next1 += 1
+            else:
+                row.add(0)
     pass
 
 #multiply m1 by m2, modifying m2 to be the product
