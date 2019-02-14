@@ -16,29 +16,30 @@ def print_matrix( matrix ):
     r = len(matrix)
     c = len(matrix.pop())
     p = ""
-    
+    print(matrix)
     for i in matrix:
-        p += copy.pop() + " "
-
-    pass
+        print(i)
+        for j in i:
+            p += str(j) + " "
+        p += "\n"
+    print(p)
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
-    copy = matrix
     r = len(matrix)
     c = len(matrix.pop())
-    id = set()
+    id = []
     next1 = 0
     for i in range(r):
-        row = set()
+        id.append([])
         for j in range(c):
-            if j  == next1:
-                row.add(1)
-                next1 += 1
+            if j == next1:
+                id[i].append(1)
             else:
-                row.add(0)
-    pass
+                id[i].append(0)
+        next1 += 1
+    return(id)
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
