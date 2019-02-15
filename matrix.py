@@ -13,12 +13,8 @@ import math
 #the template in the top comment
 def print_matrix( matrix ):
     copy = matrix
-    r = len(matrix)
-    c = len(matrix.pop())
     p = ""
-    print(matrix)
     for i in matrix:
-        print(i)
         for j in i:
             p += str(j) + " "
         p += "\n"
@@ -44,6 +40,14 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
+    m1c = m1
+    multList = []
+    m2c = m2
+    for i in range(len(m2[0])):
+        multList.append([])
+        for j in range(len(m2)):
+            multList[i].append(m2[j][i])
+    print(multList)
     pass
 
 
