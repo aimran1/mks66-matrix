@@ -47,7 +47,10 @@ def matrix_mult( m1, m2 ):
         multList.append([])
         for j in range(len(m2)):
             multList[i].append(m2[j][i])
-    print(multList)
+    for i in range(len(m1c)):
+        for j in range(len(m1c[0])):
+            m1[i][j]  += m2c[i][j] * m1c[i][j]
+    print_matrix(m1)
     pass
 
 
