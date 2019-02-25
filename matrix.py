@@ -8,6 +8,7 @@ z0  z1  ... zn
 1  1        1
 """
 import math
+import copy
 
 #print the matrix such that it looks like
 #the template in the top comment
@@ -43,12 +44,14 @@ a a a a   b b b b
 rows a ---> columns b ---> rows b
 """
 def matrix_mult( m1, m2 ):
-    m2c = m2.copy()
+    m2c = copy.deepcopy(m2)
+    for i in range(len(m2)):
+        for j in range(len(m2[0])):
+            m2[i][j] = 0
     for i in range(len(m1)):
         for j in range(len(m2[0])):
             for a in range(len(m2)):
                 m2[i][j] += m1[i][a] * m2c[a][j]
-                print(m2[i][j])
     pass
 
 
