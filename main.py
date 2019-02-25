@@ -15,14 +15,15 @@ matrix = new_matrix()
 #B = {{11,12,13,14},{15,16,17,18},{19,20,21,22},{23,24,25,26}}
 #matrix_mult(matrix,ident(matrix))
 
-matrix1 = [[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1]]
+matrix1 = [[5,2,6,1],[0,6,2,0],[3,8,1,4],[1,8,5,6]]
+matrix2 = [[7,5,8,0],[1,8,2,6],[9,4,3,8],[5,3,7,9]]
 
 ident(matrix)
 print("matrix1Initial")
-print_matrix(matrix1)
-matrix_mult(matrix,matrix1)
+print_matrix(matrix2)
+matrix_mult(matrix1,matrix2)
 print("matrix1FInal")
-print_matrix(matrix1)
+print_matrix(matrix2)
 draw_lines( matrix, screen, color )
 display(screen)
 
