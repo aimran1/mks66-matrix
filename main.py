@@ -3,33 +3,42 @@ from draw import *
 from matrix import *
 
 screen = new_screen()
-color = [ 0, 255, 0 ]
-matrix = new_matrix()
-"""
-1  2  3  4      11  12  13  14
-5  6  7  8      15  16  17  18
-9  10 11 12     19  20  21  22
-13 14 15 16     23  24  25  26
-"""
-#A = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}}
-#B = {{11,12,13,14},{15,16,17,18},{19,20,21,22},{23,24,25,26}}
-#matrix_mult(matrix,ident(matrix))
+white = [ 255, 255, 255 ]
+red = [250,0,0]
+blue = [0,0,255]
+matrixr = new_matrix()
+matrixw = new_matrix()
+matrixb = new_matrix()
 
-matrix1 = [[5,2,6,1],[0,6,2,0],[3,8,1,4],[1,8,5,6]]
-matrix2 = [[7,5,8,0],[1,8,2,6],[9,4,3,8],[5,3,7,9]]
+def add_square(matrix,x0,y0,z0,size):
+    add_edge(matrix, x0, y0, z0, x0, y0+size, z0)
+    add_edge(matrix, x0, y0, z0, x0+size, y0, z0)
+    add_edge(matrix, x0, y0+size, z0, x0+size, y0+size, z0)
+    add_edge(matrix, x0+size, y0+size, z0, x0+size, y0, z0)
 
-ident(matrix)
-print("matrix1Initial")
-print_matrix(matrix2)
-matrix_mult(matrix1,matrix2)
-print("matrix1FInal")
-print_matrix(matrix2)
-draw_lines( matrix, screen, color )
+def add_row(matrix,color,x0):
+    while x0 + 10 < 500:
+        add_square(matrix,x0,y0,0,38)
+        x0 += 2
+
+y0 = 0
+for i in range(13):
+    x0 = 0
+    if y0 >= 228:
+        while x0 < 162:
+            if x0 % 20 == 0:
+                add_square(matrixw,x0+12,y0+15,0,10)
+            else:
+                add_square(matrixb,x0,y0,0,38)
+            x0+=1
+        x0 = 200
+    if i % 2 == 0:
+        add_row(matrixr,red,x0)
+    else:
+        add_row(matrixw,white,x0)
+    y0 += 38
+
+draw_lines(matrixr,screen,red)
+draw_lines(matrixb,screen,blue)
+draw_lines(matrixw,screen,white)
 display(screen)
-
-"""
-
-
-
-
-"""
