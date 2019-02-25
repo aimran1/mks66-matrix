@@ -24,33 +24,31 @@ def print_matrix( matrix ):
 #you may assume matrix is square
 def ident( matrix ):
     r = len(matrix)
-    c = len(matrix.pop())
-    id = []
     next1 = 0
     for i in range(r):
-        id.append([])
-        for j in range(c):
+        for j in range(r):
             if j == next1:
-                id[i].append(1)
+                matrix[i][j] = 1
             else:
-                id[i].append(0)
+                matrix[i][j] = 0
         next1 += 1
-    return(id)
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
+"""
+a a a a   b b b b
+a a a a   b b b b
+a a a a   b b b b
+a a a a   b b b b
+rows a ---> columns b ---> rows b
+"""
 def matrix_mult( m1, m2 ):
-    m1c = m1
-    multList = []
-    m2c = m2
-    for i in range(len(m2[0])):
-        multList.append([])
-        for j in range(len(m2)):
-            multList[i].append(m2[j][i])
-    for i in range(len(m1c)):
-        for j in range(len(m1c[0])):
-            m1[i][j]  += m2c[i][j] * m1c[i][j]
-    print_matrix(m1)
+    m2c = m2.copy()
+    for i in range(len(m1)):
+        for j in range(len(m2[0])):
+            for a in range(len(m2)):
+                m2[i][j] += m1[i][a] * m2c[a][j]
+                print(m2[i][j])
     pass
 
 
